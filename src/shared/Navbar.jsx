@@ -1,60 +1,77 @@
-import React from 'react';
-import { Link } from 'react-router';
+import React from "react";
+import { Link } from "react-router-dom";
+import { FaShoppingCart, FaUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
-      const links = (
-            <>
-              <li>
-                <a>Item 1</a>
-        
-                <a>Item 3</a>
-              </li>
-            </>
-          );
-          return (
-            <div className="navbar bg-base-100 shadow-sm">
-              <div className="navbar-start">
-                <div className="dropdown">
-                  <div
-                    tabIndex={0}
-                    role="button"
-                    className="btn btn-ghost lg:hidden"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      {" "}
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M4 6h16M4 12h8m-8 6h16"
-                      />{" "}
-                    </svg>
-                  </div>
-                  <ul
-                    tabIndex={0}
-                    className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-                  >
-                    {links}
-                  </ul>
-                </div>
-                <a className="btn btn-ghost text-xl">BISTRO BOSS</a>
-              </div>
-              <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">{links}</ul>
-              </div>
-              <div className="navbar-end">
-                <Link to="/register">Register</Link>
-                <a className="btn">Sign In</a>
-              </div>
-            </div>
-          );
-        };
-      
+  const links = (
+    <>
+      <li>
+        <Link to="/" className="font-bold text-yellow-400">
+          HOME
+        </Link>
+      </li>
+      <li>
+        <Link to="/contact" className="text-white">
+          CONTACT US
+        </Link>
+      </li>
+      <li>
+        <Link to="/dashboard" className="text-white">
+          DASHBOARD
+        </Link>
+      </li>
+      <li>
+        <Link to="/menu" className="text-white">
+          OUR MENU
+        </Link>
+      </li>
+      <li>
+        <Link to="/shop" className="text-white">
+          OUR SHOP
+        </Link>
+      </li>
+    </>
+  );
+
+  return (
+    <div className="navbar fixed z-10  bg-black/30 text-white px-4 md:px-10 max-w-screen-xl">
+      {/* Left side: Logo */}
+      <div className="navbar-start">
+        <Link
+          to="/"
+          className="btn btn-ghost normal-case text-xl leading-tight"
+        >
+          <span className="block font-bold text-lg">BISTRO BOSS</span>
+          <br />
+          <span className="block tracking-[0.3em] text-sm font-light">
+            RESTAURANT
+          </span>
+        </Link>
+      </div>
+
+      {/* Center menu */}
+      <div className="navbar-center hidden lg:flex">
+        <ul className="menu menu-horizontal px-1 space-x-2">{links}</ul>
+      </div>
+
+      {/* Right side */}
+      <div className="navbar-end gap-4">
+        {/* Shopping cart with badge */}
+        <Link to="/cart" className="relative">
+          <FaShoppingCart className="text-2xl" />
+          <span className="badge badge-error badge-sm absolute -top-2 -right-2">
+            1
+          </span>
+        </Link>
+
+        {/* Sign out */}
+        <button className="btn btn-ghost text-white">SIGN OUT</button>
+
+        {/* User icon */}
+        <FaUserCircle className="text-3xl" />
+      </div>
+    </div>
+  );
+};
 
 export default Navbar;
