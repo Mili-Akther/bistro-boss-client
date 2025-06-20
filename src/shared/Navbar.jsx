@@ -41,11 +41,12 @@ const Navbar = () => {
           to="/"
           className="btn btn-ghost normal-case text-xl leading-tight"
         >
-          <span className="block font-bold text-lg">BISTRO BOSS</span>
-          <br />
-          <span className="block tracking-[0.3em] text-sm font-light">
-            RESTAURANT
-          </span>
+          <div className="">
+            <h2 className="block font-bold text-3xl">BISTRO BOSS</h2>
+            <h2 className="block tracking-[0.3em]  font-light ">
+              RESTAURANT
+            </h2>
+          </div>
         </Link>
       </div>
 
