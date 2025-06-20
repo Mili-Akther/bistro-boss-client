@@ -6,6 +6,7 @@ const Home = () => {
       return (
             <div>
                   <Banner></Banner>
+                  <br />
                   <Category></Category>
             </div>
       );

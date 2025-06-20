@@ -13,8 +13,6 @@ const Banner = () => {
       autoPlay={true}
       interval={3000}
       infiniteLoop={true}
-      showThumbs={false}
-      showStatus={false}
     >
       <div>
         <img src={img1} />
