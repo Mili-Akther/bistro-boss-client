@@ -1,4 +1,3 @@
-import React from "react";
 import { Parallax } from "react-parallax";
 const Cover = ({ img, title }) => {
   return (
@@ -8,9 +7,7 @@ const Cover = ({ img, title }) => {
       bgImageAlt="the menu"
       strength={-200}
     >
-      <div
-        className="hero min-h-screen"
-      >
+      <div className="hero min-h-[450px]">
         <div className="hero-overlay"></div>
         <div className="hero-content text-neutral-content text-center">
           <div className="max-w-md">
@@ -20,7 +17,6 @@ const Cover = ({ img, title }) => {
               excepturi exercitationem quasi. In deleniti eaque aut repudiandae
               et a id nisi.
             </p>
-            
           </div>
         </div>
       </div>
