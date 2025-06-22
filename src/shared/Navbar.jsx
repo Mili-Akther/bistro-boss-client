@@ -26,6 +26,11 @@ const Navbar = () => {
         </Link>
       </li>
       <li>
+        <Link to="/Order" className="text-white">
+         Order Food
+        </Link>
+      </li>
+      <li>
         <Link to="/shop" className="text-white">
           OUR SHOP
         </Link>
