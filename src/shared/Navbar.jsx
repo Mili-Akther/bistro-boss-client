@@ -35,6 +35,11 @@ const Navbar = () => {
           OUR SHOP
         </Link>
       </li>
+      <li>
+        <Link to="/login" className="text-white">
+         Login
+        </Link>
+      </li>
     </>
   );
 
