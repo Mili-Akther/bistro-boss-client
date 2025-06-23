@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
-  LoadCanvasTemplateNoReload,
   validateCaptcha,
 } from "react-simple-captcha";
 const Login = () => {
