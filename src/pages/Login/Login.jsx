@@ -6,6 +6,7 @@ import {
 } from "react-simple-captcha";
 import { AuthContext } from '../../providers/AuthProvider';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 const Login = () => {
 const captchaRef = useRef(null);
 const [disabled, setDisabled] = useState(true);
@@ -35,60 +36,74 @@ const {signIn} = useContext(AuthContext)
             }
       }
       return (
-        <div className="hero bg-base-200 min-h-screen">
-          <div className="hero-content flex-col md:flex-row-reverse">
-            <div className="text-center  md:w-1/2 lg:text-left">
-              <h1 className="text-5xl font-bold">Login now!</h1>
-              <p className="py-6">
-                Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                assumenda excepturi exercitationem quasi. In deleniti eaque aut
-                repudiandae et a id nisi.
-              </p>
-            </div>
-            <div className="card bg-base-100 md:w-1/2 max-w-sm  shadow-2xl">
-              <form onSubmit={handleLogin} className="card-body">
-                <fieldset className="fieldset">
-                  <label className="label">Email</label>
-                  <input
-                    type="email"
-                    name="email"
-                    className="input"
-                    placeholder="Email"
-                  />
-                  <label className="label">Password</label>
-                  <input
-                    type="password"
-                    className="input"
-                    placeholder="Password"
-                    name="password"
-                  />
-                  <div>
-                    <a className="link link-hover">Forgot password?</a>
-                  </div>
+        <>
+          <Helmet>
+            <title>Bistro Boss | Login</title>
+          </Helmet>
+          <div className="hero bg-base-200 min-h-screen">
+            <div className="hero-content flex-col md:flex-row-reverse">
+              <div className="text-center  md:w-1/2 lg:text-left">
+                <h1 className="text-5xl font-bold">Login now!</h1>
+                <p className="py-6">
+                  Provident cupiditate voluptatem et in. Quaerat fugiat ut
+                  assumenda excepturi exercitationem quasi. In deleniti eaque
+                  aut repudiandae et a id nisi.
+                </p>
+              </div>
+              <div className="card bg-base-100 md:w-1/2 max-w-sm  shadow-2xl">
+                <form onSubmit={handleLogin} className="card-body">
+                  <fieldset className="fieldset">
+                    <label className="label">Email</label>
+                    <input
+                      type="email"
+                      name="email"
+                      className="input"
+                      placeholder="Email"
+                    />
+                    <label className="label">Password</label>
+                    <input
+                      type="password"
+                      className="input"
+                      placeholder="Password"
+                      name="password"
+                    />
+                    <div>
+                      <a className="link link-hover">Forgot password?</a>
+                    </div>
 
-                  <label className="label">
-                    <LoadCanvasTemplate />
-                  </label>
-                  <input
-                  ref={captchaRef}
-                    type="text"
-                    className="input"
-                    placeholder="type the text captcha above"
-                    name="captcha"
-                  />
-                  <button onClick={handleValidateCaptcha} className='btn btn-outline btn-xs mt-2'>Validate</button>
-                  <input
-                  disabled={disabled}
-                    type="submit"
-                    className="btn btn-neutral mt-4"
-                    value="Login"
-                  />
-                </fieldset>
-              </form>
-              <p><small>New Here? <Link to='/signUp'>Create an Account</Link></small></p>
+                    <label className="label">
+                      <LoadCanvasTemplate />
+                    </label>
+                    <input
+                      ref={captchaRef}
+                      type="text"
+                      className="input"
+                      placeholder="type the text captcha above"
+                      name="captcha"
+                    />
+                    <button
+                      onClick={handleValidateCaptcha}
+                      className="btn btn-outline btn-xs mt-2"
+                    >
+                      Validate
+                    </button>
+                    <input
+                      disabled={disabled}
+                      type="submit"
+                      className="btn btn-neutral mt-4"
+                      value="Login"
+                    />
+                  </fieldset>
+                </form>
+                <p>
+                  <small>
+                    New Here? <Link to="/signUp">Create an Account</Link>
+                  </small>
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        </>
       );
 };
 
