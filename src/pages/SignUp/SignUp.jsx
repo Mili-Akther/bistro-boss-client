@@ -102,6 +102,7 @@ const SignUP = () => {
                     />
                   </fieldset>
                 </form>
+                <p><small>Already HAve an account <Link to ="/login " >Login</Link></small></p>
               </div>
             </div>
           </div>
