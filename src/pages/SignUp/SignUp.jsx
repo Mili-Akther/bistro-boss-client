@@ -2,20 +2,39 @@ import React, { useContext } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../providers/AuthProvider';
+import Swal from 'sweetalert2';
+import { Link, useNavigate } from 'react-router-dom';
 
 const SignUP = () => {
       const {
         register,
         handleSubmit, 
+        reset,
         formState: { errors },
       } = useForm();
-      const {createUser} = useContext(AuthContext)
+      const navigate = useNavigate();
+      const { createUser, updateUserProfile } = useContext(AuthContext);
       const onSubmit = (data) => {
             console.log(data);
             createUser(data.email, data.password)
             .then(result => {
               const loggedUser = result.user;
               console.log(loggedUser);
+              updateUserProfile(data.name , data.photoURL)
+              .then(()=> {
+                console.log('user Profile Info updated')
+                reset();
+                Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "User created successfully",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+                navigate('/')
+
+              })
+              .catch(error => console.log(error))
             })
       };
      
@@ -47,6 +66,17 @@ const SignUP = () => {
                     />
                     {errors.name && (
                       <span className="text-red-600">Name is required</span>
+                    )}
+                    <label className="label">Photo URL</label>
+                    <input
+                      {...register("photoURL", { required: true })}
+                      type="text"
+                  
+                      className="input"
+                      placeholder="Photo URL"
+                    />
+                    {errors.photoURL && (
+                      <span className="text-red-600">Photo URL is required</span>
                     )}
                     <label className="label">Email</label>
                     <input
@@ -102,7 +132,7 @@ const SignUP = () => {
                     />
                   </fieldset>
                 </form>
-                <p><small>Already HAve an account <Link to ="/login " >Login</Link></small></p>
+                <p><small>Already Have an account <Link to ="/login " >Login</Link></small></p>
               </div>
             </div>
           </div>

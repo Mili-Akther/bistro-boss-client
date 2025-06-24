@@ -48,21 +48,7 @@ const Navbar = () => {
         </Link>
       </li>
 
-      {user ? (
-        <>
-          <button onClick={handleLogOut} className="btn btn-ghost">
-            LogOut
-          </button>
-        </>
-      ) : (
-        <>
-          <li>
-            <Link to="/login" className="text-white">
-              Login
-            </Link>
-          </li>
-        </>
-      )}
+     
     </>
   );
 
@@ -76,9 +62,7 @@ const Navbar = () => {
         >
           <div className="">
             <h2 className="block font-bold text-3xl">BISTRO BOSS</h2>
-            <h2 className="block tracking-[0.3em]  font-light ">
-              RESTAURANT
-            </h2>
+            <h2 className="block tracking-[0.3em]  font-light ">RESTAURANT</h2>
           </div>
         </Link>
       </div>
@@ -99,10 +83,33 @@ const Navbar = () => {
         </Link>
 
         {/* Sign out */}
-        <button className="btn btn-ghost text-white">SIGN OUT</button>
-
-        {/* User icon */}
-        <FaUserCircle className="text-3xl" />
+        {user?.email ? (
+          <>
+            {user?.photoURL ? (
+              <div>
+                <img
+                  className="w-8 h-8 rounded-full"
+                  src={user.photoURL}
+                  alt="User"
+                />
+                <p className="text-sm">{user.displayName}</p>
+              </div>
+            ) : (
+              <FaUserCircle className="text-3xl" />
+            )}
+            <button onClick={handleLogOut} className="btn btn-ghost">
+              LogOut
+            </button>
+          </>
+        ) : (
+          <>
+            <li>
+              <Link to="/login" className="text-white">
+                Login
+              </Link>
+            </li>
+          </>
+        )}
       </div>
     </div>
   );
