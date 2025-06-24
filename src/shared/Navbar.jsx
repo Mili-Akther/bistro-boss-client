@@ -42,6 +42,11 @@ const Navbar = () => {
           OUR SHOP
         </Link>
       </li>
+      <li>
+        <Link to="/secret" className="text-white">
+          Secret
+        </Link>
+      </li>
 
       {user ? (
         <>
