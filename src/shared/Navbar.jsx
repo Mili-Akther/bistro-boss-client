@@ -25,7 +25,7 @@ const Navbar = () => {
         </Link>
       </li>
       <li>
-        <Link to="/dashboard" className="text-white">
+        <Link to="/" className="text-white">
           DASHBOARD
         </Link>
       </li>
@@ -77,7 +77,7 @@ const Navbar = () => {
       {/* Right side */}
       <div className="navbar-end gap-4">
         {/* Shopping cart with badge */}
-        <Link to="/cart" className="relative">
+        <Link to="/dashboard/cart" className="relative">
           <FaShoppingCart className="text-2xl" />
           <span className="badge badge-error badge-sm absolute -top-2 -right-2">
             +{cart.length}
