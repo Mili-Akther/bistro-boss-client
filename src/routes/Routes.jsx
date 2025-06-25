@@ -41,20 +41,28 @@ const routes = createBrowserRouter([
       },
       {
         path: "secret",
-        element: <PrivateRoute><Secret></Secret></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <Secret></Secret>
+          </PrivateRoute>
+        ),
       },
     ],
   },
   {
-    path:'dashboard',
-    element:<DashBoard></DashBoard>,
-    children:[
+    path: "dashboard",
+    element: (
+      <PrivateRoute>
+        <DashBoard></DashBoard>
+      </PrivateRoute>
+    ),
+    children: [
       {
-        path:'cart',
-        element: <Cart></Cart>
-      }
-    ]
-  }
+        path: "cart",
+        element: <Cart></Cart>,
+      },
+    ],
+  },
 ]);
 
 export default routes;
