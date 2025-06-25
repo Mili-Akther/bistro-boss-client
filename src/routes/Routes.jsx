@@ -4,11 +4,11 @@ import Home from "../pages/home/Home/Home";
 import Menu from "../pages/Menu/Menu/MEnu";
 import Order from "../pages/Order/Order";
 import Login from "../pages/Login/Login";
-import SignUP from "../pages/SignUp/SignUP";
 import PrivateRoute from "./PrivateRoute";
 import Secret from "../shared/Secret/Secret";
 import DashBoard from "../layouts/DashBoard";
 import Cart from "../pages/Dashboard/Cart/Cart";
+import SignUP from "../pages/SignUp/SignUp";
 
 
 

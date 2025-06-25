@@ -5,6 +5,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2';
 import { Link, useNavigate } from 'react-router-dom';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
+import SocialLogin from '../../Components/SocialLogin/SocialLogin';
 
 const SignUP = () => {
   const axiosPublic = useAxiosPublic();
@@ -55,8 +56,8 @@ const SignUP = () => {
       return (
         <>
           <Helmet>
-                    <title>Bistro Boss | Sign Up</title>
-                  </Helmet>
+            <title>Bistro Boss | Sign Up</title>
+          </Helmet>
           <div className="hero bg-base-200 min-h-screen">
             <div className="hero-content flex-col lg:flex-row-reverse">
               <div className="text-center lg:text-left">
@@ -85,12 +86,13 @@ const SignUP = () => {
                     <input
                       {...register("photoURL", { required: true })}
                       type="text"
-                  
                       className="input"
                       placeholder="Photo URL"
                     />
                     {errors.photoURL && (
-                      <span className="text-red-600">Photo URL is required</span>
+                      <span className="text-red-600">
+                        Photo URL is required
+                      </span>
                     )}
                     <label className="label">Email</label>
                     <input
@@ -146,7 +148,12 @@ const SignUP = () => {
                     />
                   </fieldset>
                 </form>
-                <p><small>Already Have an account <Link to ="/login " >Login</Link></small></p>
+                <p className="px-6 ">
+                  <small>
+                    Already Have an account <Link to="/login ">Login</Link>
+                  </small>
+                  <SocialLogin></SocialLogin>
+                </p>
               </div>
             </div>
           </div>
