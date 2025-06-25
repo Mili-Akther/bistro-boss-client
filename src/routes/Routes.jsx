@@ -9,6 +9,7 @@ import Secret from "../shared/Secret/Secret";
 import DashBoard from "../layouts/DashBoard";
 import Cart from "../pages/Dashboard/Cart/Cart";
 import SignUP from "../pages/SignUp/SignUp";
+import AllUser from "../pages/Dashboard/AllUsers/AllUser";
 
 
 
@@ -61,6 +62,11 @@ const routes = createBrowserRouter([
         path: "cart",
         element: <Cart></Cart>,
       },
+      //  admin routes
+      {
+        path: 'users',
+        element: <AllUser></AllUser>
+      }
     ],
   },
 ]);
