@@ -19,9 +19,6 @@ import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
 import UserHome from "../pages/Dashboard/UserHome/UserHome";
 import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 
-
-
-
 const routes = createBrowserRouter([
   {
     path: "/",
@@ -86,26 +83,53 @@ const routes = createBrowserRouter([
 
       //  admin only routes
       {
-        path: 'adminHome',
-        element:<AdminRoute> <AdminHome></AdminHome></AdminRoute>
+        path: "adminHome",
+        element: (
+          <AdminRoute>
+            {" "}
+            <AdminHome></AdminHome>
+          </AdminRoute>
+        ),
       },
       {
-        path: 'addItems',
-        element:<AdminRoute> <AddItems></AddItems></AdminRoute>
+        path: "addItems",
+        element: (
+          <AdminRoute>
+            {" "}
+            <AddItems></AddItems>
+          </AdminRoute>
+        ),
       },
       {
-        path: 'manageItems',
-        element:<AdminRoute> <ManageItems></ManageItems></AdminRoute>
+        path: "manageItems",
+        element: (
+          <AdminRoute>
+            {" "}
+            <ManageItems></ManageItems>
+          </AdminRoute>
+        ),
       },
       {
-        path: 'updateItem/:id',
-        element:<AdminRoute> <UpdateItem></UpdateItem></AdminRoute>,
-        loader : ({params}) => fetch(`http://localhost:5000/menu/${params.id}`)
+        path: "updateItem/:id",
+        element: (
+          <AdminRoute>
+            {" "}
+            <UpdateItem></UpdateItem>
+          </AdminRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://bistro-boss-server-kohl-delta.vercel.app/menu/${params.id}`
+          ),
       },
       {
-        path: 'users',
-        element: <AdminRoute><AllUser></AllUser></AdminRoute>
-      }
+        path: "users",
+        element: (
+          <AdminRoute>
+            <AllUser></AllUser>
+          </AdminRoute>
+        ),
+      },
     ],
   },
 ]);
